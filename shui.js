@@ -1,25 +1,31 @@
-var request = require('request');
+var request = require('https').get;
 
 module.exports = function(domain,callback){
 	if(domain.cli){
 		domain = domain._[0];
 	}
-	request('https://domai.nr/api/json/info?q='+domain, function (error, response,body) {
- 		if (!error && response.statusCode == 200) {
- 			if(typeof callback ==='function'){
- 				callback(JSON.parse(body));
- 			}
- 			else{
- 				console.log(JSON.parse(body));
- 			}
- 		}
- 		else{
- 			if(typeof callback ==='function'){
- 				callback(error);
- 			}
- 			else{
- 				console.log(error);
- 			}
- 		}
+	request('https://domai.nr/api/json/info?q='+domain, function (res) {
+		var body = '';
+
+    	res.on('data', function(chunk) {
+        	body += chunk;
+    	});
+
+   		res.on('end', function() {
+        	var data = JSON.parse(body)
+          if(typeof callback==='function'){
+            callback(data);
+          }
+          else{
+            console.log(data);
+          }
+    	});
+	}).on('error', function(e) {
+  		    if(typeof callback==='function'){
+            callback(e.message);
+          }
+          else{
+            console.log(e.message);
+          }
 	});
 };

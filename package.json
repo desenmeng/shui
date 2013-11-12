@@ -1,6 +1,6 @@
 {
   "name": "shui",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "a whois npm module",
   "preferGlobal": true,
   "bin": {
@@ -23,7 +23,6 @@
     "url": "https://github.com/demohi/shui/issues"
   },
   "dependencies": {
-    "optimist": "0.6.0",
-    "request": "2.27.0"
+    "optimist": "0.6.0"
   }
 }
