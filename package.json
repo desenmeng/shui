@@ -1,8 +1,12 @@
 {
   "name": "shui",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "a whois npm module",
-  "main": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "shui": "./bin/shui"
+  },
+  "main": "shui.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,5 +21,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/demohi/shui/issues"
+  },
+  "dependencies": {
+    "optimist": "0.6.0",
+    "request": "2.27.0"
   }
 }
