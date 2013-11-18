@@ -19,7 +19,7 @@ shui "baidu.com"
 ### Node.js
 
 ```
-var shui = require('./shui');
+var shui = require('shui');
 shui('baidu.com',function(result){
 	console.log(result);
 });
