@@ -1,7 +1,7 @@
 var request = require('https').get;
 
 module.exports = function(domain,callback){
-	if(domain.cli){
+	if(domain._ && domain._[0]){
 		domain = domain._[0];
 	}
 	request('https://domai.nr/api/json/info?q='+domain, function (res) {
